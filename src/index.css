@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom wedding styles */
+.font-display {
+  font-family: 'Alex Brush', 'Pinyon Script', 'Great Vibes', cursive;
+}
+
+.font-script {
+  font-family: 'Great Vibes', 'Alex Brush', cursive;
+}
+
+.font-serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Luxury card with subtle border & shadow */
+.card-elegant {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  box-shadow: 0 10px 30px -10px rgba(96, 108, 93, 0.12), 0 4px 12px -2px rgba(197, 160, 89, 0.08);
+}
+
+.card-gold-border {
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  position: relative;
+}
+
+.card-gold-border::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  pointer-events: none;
+}
+
+/* Golden text gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #E6CA65 0%, #C5A059 50%, #99732B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A059;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #99732B;
+}
