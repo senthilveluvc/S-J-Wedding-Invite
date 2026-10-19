@@ -19,12 +19,16 @@ export default function App() {
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef(null);
 
-  // Audio setup
+  // Audio setup with iOS and Android compatibility
   useEffect(() => {
-    const audio = new Audio('/assets/wedding-music.mp3');
-    audio.loop = true;
-    audio.volume = 0.5;
-    audioRef.current = audio;
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    try {
+      audio.volume = 0.5;
+    } catch (e) {
+      // iOS volume is system-controlled
+    }
 
     const handleVisibility = () => {
       if (document.hidden) {
@@ -35,12 +39,28 @@ export default function App() {
     };
 
     document.addEventListener('visibilitychange', handleVisibility);
+
+    // Global one-time interaction unlock for iOS Safari & Android
+    const unlockAudio = () => {
+      if (audio && audio.paused && !isMuted) {
+        audio.play().then(() => {
+          setIsPlaying(true);
+          setIsMuted(false);
+        }).catch(() => {});
+      }
+    };
+
+    window.addEventListener('touchstart', unlockAudio, { once: true, passive: true });
+    window.addEventListener('touchend', unlockAudio, { once: true, passive: true });
+    window.addEventListener('click', unlockAudio, { once: true });
+
     return () => {
       document.removeEventListener('visibilitychange', handleVisibility);
-      audio.pause();
-      audio.src = '';
+      window.removeEventListener('touchstart', unlockAudio);
+      window.removeEventListener('touchend', unlockAudio);
+      window.removeEventListener('click', unlockAudio);
     };
-  }, []);
+  }, [isPlaying, isMuted]);
 
   const handleStartMusic = () => {
     const audio = audioRef.current;
@@ -83,14 +103,16 @@ export default function App() {
     bride: "Sowndarya",
     groom: "Jayanth",
     receptionDate: "Saturday, 21 November 2026",
-    receptionTime: "06:00 PM Onwards",
+    receptionTime: "06:00 PM – 09:00 PM",
     weddingDate: "Sunday, 22 November 2026",
     weddingTime: "07:00 AM – 08:00 AM",
-    date: "21 & 22 November 2026",
+    tenkasiDate: "Sunday, 29 November 2026",
+    tenkasiTime: "06:00 PM – 09:00 PM",
+    date: "21, 22 & 29 November 2026",
     targetDate: "2026-11-21T18:00:00",
     venue: "Lakshmi Kalyana Mandapam, Coimbatore",
     address: "226/1, Pollachi Main Rd, Eachanari, Coimbatore, Tamil Nadu 641021",
-    mapsUrl: "https://maps.app.goo.gl/sGwCCBQKmwRF8YsQ9"
+    mapsUrl: "https://maps.app.goo.gl/42tu9b9yNE1ib6Dz7"
   };
 
   return (
@@ -98,19 +120,24 @@ export default function App() {
       
       {/* Global Royal Temple Mandapam Wallpaper & Ambient Lighting */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
-        {/* Mobile background */}
+        {/* Mobile background (Rich, vibrant temple mandapam arch, pillars, and diyas) */}
         <img
           src="/assets/temple-mandapam-bg.jpg"
           alt=""
-          className="md:hidden w-full h-full object-cover object-top opacity-35 filter brightness-90 contrast-115"
+          className="md:hidden w-full h-full object-cover object-top opacity-80 filter brightness-95 contrast-110"
         />
         {/* Desktop background */}
         <img
           src="/assets/temple-mandapam-desktop.jpg"
           alt=""
-          className="hidden md:block w-full h-full object-cover object-center opacity-30 filter brightness-90 contrast-115"
+          className="hidden md:block w-full h-full object-cover object-center opacity-70 filter brightness-95 contrast-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1A0307]/50 via-[#1A0307]/85 to-[#1A0307]/95" />
+        {/* Soft, translucent royal maroon veil to maintain high text contrast without washing out the architecture */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1A0307]/30 via-[#1A0307]/45 to-[#120205]/60" />
+        
+        {/* Luminous warm ambient golden lighting for festive royal atmosphere */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[550px] h-[550px] bg-gold/10 rounded-full blur-[110px] pointer-events-none" />
+        <div className="absolute top-2/3 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-gold/10 rounded-full blur-[130px] pointer-events-none" />
       </div>
 
       {/* Top Floating Glass Header */}
@@ -234,6 +261,20 @@ export default function App() {
           venue={weddingDetails.venue}
         />
       </main>
+
+      {/* Native HTML5 Audio with iOS (M4A) and Android (MP4/AAC) support */}
+      <audio
+        ref={audioRef}
+        loop
+        preload="auto"
+        playsInline
+        webkit-playsinline="true"
+      >
+        <source src="/assets/Thirukkural.m4a" type="audio/mp4" />
+        <source src="/assets/Thirukkural.mp4" type="audio/mp4" />
+        <source src="/assets/Thirukkural.aac" type="audio/aac" />
+        <source src="/assets/Thirukkural.mp3" type="audio/mpeg" />
+      </audio>
 
       {/* Floating Audio / Music Player */}
       <MusicPlayer

@@ -5,15 +5,15 @@ import { Heart, ArrowUp } from 'lucide-react';
 export default function Footer({
   bride = "Sowndarya",
   groom = "Jayanth",
-  date = "21 & 22 November 2026",
-  venue = "Lakshmi Kalyana Mandapam, Coimbatore"
+  date = "21, 22 & 29 November 2026",
+  venue = "Coimbatore & Tenkasi"
 }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <footer className="relative py-16 md:py-24 px-4 text-center bg-[#130104] border-t border-gold/30 overflow-hidden">
+    <footer className="relative py-16 md:py-24 px-4 text-center bg-black/40 backdrop-blur-md border-t border-gold/30 overflow-hidden">
       
       <div className="relative z-10 max-w-xl mx-auto flex flex-col items-center">
         
@@ -38,7 +38,7 @@ export default function Footer({
         </h3>
 
         <p className="font-body text-xs tracking-[0.25em] uppercase text-[#F5DE88] font-medium mb-4">
-          {date} &bull; {venue}
+          {date} &bull; 
         </p>
 
         <p className="font-serif italic text-sm sm:text-base text-[#FBF6EE]/90 max-w-md mx-auto mb-8 font-light">

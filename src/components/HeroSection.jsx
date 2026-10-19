@@ -14,7 +14,7 @@ export default function HeroSection({
   };
 
   return (
-    <section className="relative min-h-[95vh] md:min-h-screen flex flex-col justify-between items-center text-center px-4 pt-16 pb-12 overflow-hidden bg-[#200408]">
+    <section className="relative min-h-[95vh] md:min-h-screen flex flex-col justify-between items-center text-center px-4 pt-16 pb-12 overflow-hidden bg-transparent">
       
       {/* Mobile: Royal South Indian Temple Entrance Mandapam Arch */}
       <img

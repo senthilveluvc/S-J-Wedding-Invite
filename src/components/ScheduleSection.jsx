@@ -6,17 +6,24 @@ export default function ScheduleSection() {
   const events = [
     {
       icon: Music2,
-      time: "Saturday, 21 Nov 2026 • 06:00 PM Onwards",
-      title: "Wedding Reception",
+      time: "Saturday, 21 Nov 2026 • 06:00 PM – 09:00 PM",
+      title: "Wedding Reception (Coimbatore)",
       subtext: "Evening Reception & Musical Dinner Banquet",
-      description: "Join us for an elegant evening welcoming the newlyweds with live classical melodies, photography, and an exquisite dinner banquet."
+      description: "Join us for an elegant evening welcoming the newlyweds with live classical melodies, photography, and an exquisite dinner banquet at Lakshmi Kalyana Mandapam, Coimbatore."
     },
     {
       icon: Flower2,
       time: "Sunday, 22 Nov 2026 • Morning 07:00 AM – 08:00 AM",
       title: "Muhurtham (Wedding Ceremony)",
       subtext: "Sacred Auspicious Vows & Mangalyadharanam",
-      description: "Witness the sacred rituals, tying of the sacred Thali, Vedic chants, and seven sacred steps (Saptapadi) accompanied by traditional Nadaswaram and Thavil."
+      description: "Witness the sacred rituals, tying of the sacred Thali, Vedic chants, and seven sacred steps (Saptapadi) accompanied by traditional Nadaswaram and Thavil at Sri Sundararaja Perumal Thirukkoil, Coimbatore."
+    },
+    {
+      icon: Music2,
+      time: "Sunday, 29 Nov 2026 • 06:00 PM – 09:00 PM",
+      title: "Wedding Reception (Tenkasi)",
+      subtext: "Evening Reception & Grand Dinner Banquet",
+      description: "Celebrate the joyous union of Sowndarya and Jayanth with friends and family at Shri Sharadhamba Grand A/C, Courtallam - Tenkasi Main Road, Vallam, Tenkasi."
     }
   ];
 
