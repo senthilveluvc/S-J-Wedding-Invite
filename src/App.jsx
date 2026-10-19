@@ -163,33 +163,28 @@ export default function App() {
         </div>
 
         {/* 2. Meet the Couple Section */}
-        <CoupleSection
+        {/* <CoupleSection
           bride={weddingDetails.bride}
           groom={weddingDetails.groom}
-        />
+        /> */}
 
         {/* Elegant Gold Divider */}
-        <div className="flex items-center justify-center py-2 bg-gradient-to-r from-transparent via-gold/50 to-transparent">
+        {/* <div className="flex items-center justify-center py-2 bg-gradient-to-r from-transparent via-gold/50 to-transparent">
           <span className="w-2.5 h-2.5 rotate-45 border border-gold/80 bg-[#2B050C]" />
-        </div>
+        </div> */}
 
         {/* 3. Our Little Story Section */}
-        <StorySection />
+        {/* <StorySection /> */}
 
         {/* Elegant Gold Divider */}
-        <div className="flex items-center justify-center py-2 bg-gradient-to-r from-transparent via-gold/50 to-transparent">
+        {/* <div className="flex items-center justify-center py-2 bg-gradient-to-r from-transparent via-gold/50 to-transparent">
           <span className="w-2.5 h-2.5 rotate-45 border border-gold/80 bg-[#2B050C]" />
-        </div>
-
-        {/* 4. Live Countdown Section */}
-        <Countdown
-          targetDate={weddingDetails.targetDate}
-        />
+        </div> */}
 
         {/* Elegant Gold Divider */}
-        <div className="flex items-center justify-center py-2 bg-gradient-to-r from-transparent via-gold/50 to-transparent">
+        {/* <div className="flex items-center justify-center py-2 bg-gradient-to-r from-transparent via-gold/50 to-transparent">
           <span className="w-2.5 h-2.5 rotate-45 border border-gold/80 bg-[#2B050C]" />
-        </div>
+        </div> */}
 
         {/* 4. Interactive Golden Scratch Card Section to Reveal Dates */}
         <ScratchCardSection />
@@ -199,8 +194,17 @@ export default function App() {
           <span className="w-2.5 h-2.5 rotate-45 border border-gold/80 bg-[#2B050C]" />
         </div>
 
+         {/* 4. Live Countdown Section */}
+        <Countdown
+          targetDate={weddingDetails.targetDate}
+        />
+
+        {/* <div className="flex items-center justify-center py-2 bg-gradient-to-r from-transparent via-gold/50 to-transparent">
+          <span className="w-2.5 h-2.5 rotate-45 border border-gold/80 bg-[#2B050C]" />
+        </div> */}
+
         {/* 5. Events & Schedule Section */}
-        <ScheduleSection />
+        {/* <ScheduleSection /> */}
 
         {/* Elegant Gold Divider */}
         <div className="flex items-center justify-center py-2 bg-gradient-to-r from-transparent via-gold/50 to-transparent">

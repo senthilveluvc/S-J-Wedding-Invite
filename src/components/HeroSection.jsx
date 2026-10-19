@@ -69,7 +69,7 @@ export default function HeroSection({
           transition={{ duration: 0.9, delay: 0.3 }}
           className="font-body text-xs md:text-sm tracking-[0.35em] uppercase text-[#F3E5AB] font-medium mb-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]"
         >
-          Together with their families
+          Together with our families
         </motion.p>
 
         {/* Grand Calligraphy Names */}
@@ -103,11 +103,11 @@ export default function HeroSection({
           transition={{ duration: 1, delay: 0.8 }}
           className="font-serif italic text-base md:text-xl text-[#FBF6EE] max-w-xl mx-auto my-4 px-4 font-light leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
         >
-          Request the honour of your gracious presence and blessings to celebrate our wedding ceremony
+          From that magical moment of holding hands and saying yes to forever, with joyous hearts and the blessings of our parents, we invite you to stand with us as we exchange our vows and begin our new chapter together as one.
         </motion.p>
 
         {/* Date & Location Pill Cards */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
@@ -129,7 +129,7 @@ export default function HeroSection({
               {venue}
             </span>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
 
       {/* Scroll Down Indicator */}
