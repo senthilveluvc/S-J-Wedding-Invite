@@ -11,7 +11,7 @@ import ScratchCardSection from './components/ScratchCardSection';
 import CelebrationEffects from './components/CelebrationEffects';
 import RSVPSection from './components/RSVPSection';
 import Footer from './components/Footer';
-import { Mail, Volume2, Sparkles } from 'lucide-react';
+import { DoorOpen, Volume2, Sparkles } from 'lucide-react';
 
 export default function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -150,24 +150,21 @@ export default function App() {
             <span className="font-serif font-semibold text-lg text-[#F5DE88]">J</span>
           </a>
 
-          {/* Quick links */}
+          {/* Quick links matching active sections */}
           <div className="hidden sm:flex items-center gap-5 text-xs font-body tracking-wider uppercase font-medium text-[#F7E7A9]">
-            <a href="#couple" className="hover:text-white transition-colors">Couple</a>
-            <a href="#story" className="hover:text-white transition-colors">Story</a>
             <a href="#dates-reveal" className="hover:text-white transition-colors">Dates</a>
-            <a href="#schedule" className="hover:text-white transition-colors">Events</a>
+            <a href="#countdown" className="hover:text-white transition-colors">Countdown</a>
             <a href="#venue" className="hover:text-white transition-colors">Venue</a>
-            {/* <a href="#rsvp" className="hover:text-white transition-colors">RSVP</a> */}
           </div>
 
-          {/* Re-open Envelope Button */}
+          {/* Re-open Royal Entrance Button */}
           <button
             onClick={() => setShowIntro(true)}
-            className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/40 hover:bg-black/70 text-[#F7E7A9] hover:text-white text-[11px] font-body tracking-wide font-medium border border-gold/40 transition-all active:scale-95"
-            title="Re-open Envelope Animation"
+            className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/40 hover:bg-black/70 text-[#F7E7A9] hover:text-white text-[11px] font-body tracking-wide font-medium border border-gold/40 transition-all active:scale-95 cursor-pointer"
+            title="Re-open Royal Mandapam Entrance"
           >
-            <Mail className="w-3.5 h-3.5 text-gold" />
-            <span className="hidden xs:inline">Envelope</span>
+            <DoorOpen className="w-3.5 h-3.5 text-gold" />
+            <span className="hidden xs:inline">Entrance</span>
           </button>
         </nav>
       </header>
@@ -266,7 +263,7 @@ export default function App() {
       <audio
         ref={audioRef}
         loop
-        preload="auto"
+        preload="none"
         playsInline
         webkit-playsinline="true"
       >
@@ -283,10 +280,10 @@ export default function App() {
         onToggle={toggleMute}
       />
 
-      {/* Celebration Mode Background Effects & Shower Blessings Button */}
-      <CelebrationEffects />
+      {/* Celebration Mode Background Effects & Shower Blessings Button (Deferred until inside invite) */}
+      {!showIntro && <CelebrationEffects />}
 
-      {/* Wax Seal Envelope Opening Intro Overlay */}
+      {/* Royal Mandapam Opening Intro Overlay */}
       {showIntro && (
         <EnvelopeIntro
           onEnter={() => setShowIntro(false)}

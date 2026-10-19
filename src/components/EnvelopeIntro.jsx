@@ -19,13 +19,14 @@ export default function EnvelopeIntro({ onEnter, onStartMusic }) {
       }
     }
 
-    // Festive golden & rose confetti burst
+    // Festive golden & rose confetti burst (optimized particle count for 60fps on mobile)
     try {
       confetti({
-        particleCount: 75,
-        spread: 90,
+        particleCount: 40,
+        spread: 80,
         origin: { y: 0.55 },
-        colors: ['#E6CA65', '#D4AF37', '#FAF8F5', '#E11D48', '#FFB703', '#F43F5E']
+        colors: ['#E6CA65', '#D4AF37', '#FAF8F5', '#E11D48', '#FFB703', '#F43F5E'],
+        disableForReducedMotion: true
       });
     } catch (e) {
       // ignore
@@ -67,8 +68,10 @@ export default function EnvelopeIntro({ onEnter, onStartMusic }) {
           <picture>
             <source media="(min-width: 768px)" srcSet="/assets/temple-mandapam-desktop.jpg" />
             <img
-              src="/assets/temple-mandapam-mobile.jpg"
+              src="/assets/temple-mandapam-bg.jpg"
               alt=""
+              loading="eager"
+              decoding="async"
               className="w-full h-full object-cover object-center opacity-60 filter brightness-110 contrast-110"
             />
           </picture>
@@ -87,16 +90,25 @@ export default function EnvelopeIntro({ onEnter, onStartMusic }) {
         {/* 3D MANDAPAM PORTAL FRAMEWORK
             - On Mobile: Fills 100% of the screen seamlessly edge-to-edge
             - On Desktop/Tablet: Centered majestic palace gateway with proper 9:16 proportions
+            - Optimized for iOS Safari WebKit GPU 3D rendering
         */}
         <div
-          className="relative w-full h-full md:w-auto md:h-[92vh] md:max-w-[540px] md:aspect-[768/1376] flex items-center justify-center overflow-hidden md:rounded-2xl md:shadow-[0_0_80px_rgba(0,0,0,0.9)] md:border md:border-gold/30"
-          style={{ perspective: '1400px' }}
+          className="relative w-full h-full md:w-auto md:h-[92vh] md:max-w-[540px] md:aspect-[768/1376] flex items-center justify-center md:rounded-2xl md:shadow-[0_0_80px_rgba(0,0,0,0.9)] md:border md:border-gold/30"
+          style={{
+            perspective: '1200px',
+            WebkitPerspective: '1200px'
+          }}
         >
           {/* Inner zoom wrapper during opening */}
           <motion.div
-            className="relative w-full h-full flex items-stretch overflow-hidden"
+            className="relative w-full h-full flex items-stretch"
             animate={state === 'opening' ? { scale: [1, 1.08, 1.15] } : { scale: 1 }}
             transition={{ duration: 2.2, ease: [0.25, 0.1, 0.25, 1] }}
+            style={{
+              willChange: 'transform',
+              transformStyle: 'preserve-3d',
+              WebkitTransformStyle: 'preserve-3d'
+            }}
           >
             {/* LEFT DOOR PANEL (Covers left 50%) */}
             <motion.div
@@ -116,8 +128,12 @@ export default function EnvelopeIntro({ onEnter, onStartMusic }) {
               }}
               style={{
                 transformOrigin: 'left center',
+                WebkitTransformOrigin: 'left center',
                 transformStyle: 'preserve-3d',
-                backfaceVisibility: 'hidden'
+                WebkitTransformStyle: 'preserve-3d',
+                backfaceVisibility: 'hidden',
+                WebkitBackfaceVisibility: 'hidden',
+                willChange: 'transform'
               }}
             >
               {/* Left Door Image Slice: Centered 200% width pinned to the left */}
@@ -125,6 +141,9 @@ export default function EnvelopeIntro({ onEnter, onStartMusic }) {
                 <img
                   src="/assets/royal-door.jpg"
                   alt="Royal Mandapam Entrance Door Left"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   className="absolute top-0 left-0 w-[200%] max-w-none h-full object-cover object-center"
                   draggable={false}
                 />
@@ -154,8 +173,12 @@ export default function EnvelopeIntro({ onEnter, onStartMusic }) {
               }}
               style={{
                 transformOrigin: 'right center',
+                WebkitTransformOrigin: 'right center',
                 transformStyle: 'preserve-3d',
-                backfaceVisibility: 'hidden'
+                WebkitTransformStyle: 'preserve-3d',
+                backfaceVisibility: 'hidden',
+                WebkitBackfaceVisibility: 'hidden',
+                willChange: 'transform'
               }}
             >
               {/* Right Door Image Slice: Centered 200% width pinned to the right */}
@@ -163,6 +186,9 @@ export default function EnvelopeIntro({ onEnter, onStartMusic }) {
                 <img
                   src="/assets/royal-door.jpg"
                   alt="Royal Mandapam Entrance Door Right"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   className="absolute top-0 right-0 w-[200%] max-w-none h-full object-cover object-center"
                   draggable={false}
                 />
