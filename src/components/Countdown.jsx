@@ -37,20 +37,8 @@ export default function Countdown({ targetDate = "2026-11-22T09:00:00" }) {
   ];
 
   return (
-    <section id="countdown" className="relative py-20 md:py-28 px-4 overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-[#F4EFEA] to-[#FAF8F5]">
+    <section id="countdown" className="relative py-20 md:py-28 px-4 overflow-hidden bg-transparent">
       
-      {/* Cypress Trees & Side Decor */}
-      <img
-        src="/assets/cypress-trees.png"
-        alt=""
-        className="absolute -left-12 bottom-0 w-32 md:w-48 h-auto pointer-events-none select-none opacity-50 z-0 hidden sm:block"
-      />
-      <img
-        src="/assets/cypress-trees.png"
-        alt=""
-        className="absolute -right-12 bottom-0 w-32 md:w-48 h-auto pointer-events-none select-none opacity-50 z-0 scale-x-[-1] hidden sm:block"
-      />
-
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         
         <motion.div
@@ -60,14 +48,14 @@ export default function Countdown({ targetDate = "2026-11-22T09:00:00" }) {
           transition={{ duration: 0.8 }}
           className="mb-10"
         >
-          <span className="font-body text-xs tracking-[0.3em] uppercase text-gold font-semibold block mb-2">
+          <span className="font-body text-xs tracking-[0.3em] uppercase text-[#F7E7A9] font-semibold block mb-2">
             Save The Date
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl text-[#2B352E] font-normal">
-            Countdown to the Big Day
+          <h2 className="font-serif text-4xl md:text-5xl text-white font-normal drop-shadow-md">
+            Countdown to the Celebration
           </h2>
-          <p className="font-serif italic text-base md:text-lg text-sage-dark/80 mt-2">
-            Every moment brings us closer to our forever
+          <p className="font-serif italic text-base md:text-lg text-[#FBF6EE] mt-2">
+            Every moment brings us closer to our joyous union
           </p>
         </motion.div>
 
@@ -80,18 +68,18 @@ export default function Countdown({ targetDate = "2026-11-22T09:00:00" }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white/80 backdrop-blur-md rounded-2xl p-4 sm:p-6 shadow-md border border-gold/30 flex flex-col items-center relative group hover:border-gold transition-colors duration-300"
+              className="bg-gradient-to-b from-[#2B050C]/90 to-[#1A0307]/95 backdrop-blur-md rounded-2xl p-4 sm:p-6 shadow-xl border border-gold/40 flex flex-col items-center relative group hover:border-gold transition-colors duration-300"
             >
               {/* Corner flourish dots */}
-              <span className="absolute top-2 left-2 w-1.5 h-1.5 rounded-full bg-gold/40" />
-              <span className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-gold/40" />
-              <span className="absolute bottom-2 left-2 w-1.5 h-1.5 rounded-full bg-gold/40" />
-              <span className="absolute bottom-2 right-2 w-1.5 h-1.5 rounded-full bg-gold/40" />
+              <span className="absolute top-2 left-2 w-1.5 h-1.5 rounded-full bg-gold/50" />
+              <span className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-gold/50" />
+              <span className="absolute bottom-2 left-2 w-1.5 h-1.5 rounded-full bg-gold/50" />
+              <span className="absolute bottom-2 right-2 w-1.5 h-1.5 rounded-full bg-gold/50" />
 
-              <span className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#2B352E] font-normal tracking-tight">
+              <span className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#F5DE88] font-normal tracking-tight drop-shadow-md">
                 {String(unit.value).padStart(2, '0')}
               </span>
-              <span className="font-body text-[11px] sm:text-xs tracking-[0.25em] uppercase text-sage-dark font-medium mt-2">
+              <span className="font-body text-[11px] sm:text-xs tracking-[0.25em] uppercase text-[#F3E5AB] font-medium mt-2">
                 {unit.label}
               </span>
             </motion.div>

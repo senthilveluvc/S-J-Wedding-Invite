@@ -59,7 +59,7 @@ export default function EnvelopeIntro({ onEnter, onStartMusic }) {
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-[#FAF8F5] cursor-pointer select-none overflow-hidden"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-[#1A0307] cursor-pointer select-none overflow-hidden"
         onClick={handleOpen}
         initial={{ opacity: 1 }}
         animate={{ opacity: state === 'fading' ? 0 : 1 }}
@@ -100,10 +100,10 @@ export default function EnvelopeIntro({ onEnter, onStartMusic }) {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="px-5 py-2 rounded-full bg-white/70 backdrop-blur-md border border-gold/40 shadow-sm flex items-center gap-2"
+              className="px-5 py-2 rounded-full bg-black/60 backdrop-blur-md border border-gold/50 shadow-md flex items-center gap-2"
             >
               <Sparkles className="w-4 h-4 text-gold" />
-              <span className="text-xs tracking-[0.25em] uppercase font-body font-semibold text-sage-dark">
+              <span className="text-xs tracking-[0.25em] uppercase font-body font-semibold text-[#F5DE88]">
                 You Are Cordially Invited
               </span>
             </motion.div>
@@ -123,13 +123,13 @@ export default function EnvelopeIntro({ onEnter, onStartMusic }) {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="text-center"
             >
-              <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-sage-deep/85 text-white backdrop-blur-md shadow-lg border border-gold/40 transition-transform active:scale-95">
+              <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#2B050C]/90 text-white backdrop-blur-md shadow-2xl border border-gold/50 transition-transform active:scale-95">
                 <MailOpen className="w-4 h-4 text-gold-light" />
-                <span className="font-body text-xs md:text-sm tracking-widest uppercase font-medium">
+                <span className="font-body text-xs md:text-sm tracking-widest uppercase font-medium text-[#F7E7A9]">
                   Tap to Open Invitation
                 </span>
               </div>
-              <p className="text-[11px] font-body text-sage-dark/70 tracking-wider mt-2">
+              <p className="text-[11px] font-body text-[#F7E7A9]/80 tracking-wider mt-2">
                 Click anywhere to break the seal &amp; reveal
               </p>
             </motion.div>

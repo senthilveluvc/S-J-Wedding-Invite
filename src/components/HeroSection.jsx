@@ -14,72 +14,60 @@ export default function HeroSection({
   };
 
   return (
-    <section className="relative min-h-[92vh] md:min-h-screen flex flex-col justify-between items-center text-center px-4 pt-16 pb-12 overflow-hidden bg-gradient-to-b from-[#FAF7F2] via-[#F4EFEA] to-[#FAF8F5]">
+    <section className="relative min-h-[95vh] md:min-h-screen flex flex-col justify-between items-center text-center px-4 pt-16 pb-12 overflow-hidden bg-[#200408]">
       
-      {/* Classical Architectural Framing - Left & Right Curtains */}
+      {/* Mobile: Royal South Indian Temple Entrance Mandapam Arch */}
       <img
-        src="/assets/curtain-left.png"
-        alt=""
-        className="absolute top-0 left-0 w-32 md:w-56 lg:w-72 h-auto pointer-events-none select-none z-20 opacity-90 transition-transform duration-1000"
-      />
-      <img
-        src="/assets/curtain-right.png"
-        alt=""
-        className="absolute top-0 right-0 w-32 md:w-56 lg:w-72 h-auto pointer-events-none select-none z-20 opacity-90 transition-transform duration-1000"
-      />
-      <img
-        src="/assets/curtain-center.png"
-        alt=""
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-64 md:w-96 lg:w-[32rem] h-auto pointer-events-none select-none z-20 opacity-90"
+        src="/assets/temple-mandapam-bg.jpg"
+        alt="Royal South Indian Temple Mandapam"
+        className="md:hidden absolute inset-0 w-full h-full object-cover object-top pointer-events-none select-none z-0"
       />
 
-      {/* Classical Marble Columns */}
+      {/* Desktop: Wide Majestic South Indian Temple Hall */}
       <img
-        src="/assets/column-left.png"
-        alt=""
-        className="absolute left-0 bottom-0 h-[60%] md:h-[80%] w-auto pointer-events-none select-none z-10 opacity-70 hidden sm:block"
-      />
-      <img
-        src="/assets/column-right.png"
-        alt=""
-        className="absolute right-0 bottom-0 h-[60%] md:h-[80%] w-auto pointer-events-none select-none z-10 opacity-70 hidden sm:block"
+        src="/assets/temple-mandapam-desktop.jpg"
+        alt="Royal South Indian Temple Mandapam Desktop"
+        className="hidden md:block absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none z-0"
       />
 
-      {/* Decorative Floral Accents */}
-      <img
-        src="/assets/roses-top-left.png"
-        alt=""
-        className="absolute top-12 left-4 md:left-24 w-28 md:w-44 h-auto pointer-events-none select-none z-10 opacity-80"
-      />
-      <img
-        src="/assets/roses-bottom-right.png"
-        alt=""
-        className="absolute bottom-8 right-4 md:right-24 w-28 md:w-44 h-auto pointer-events-none select-none z-10 opacity-80"
-      />
+      {/* Subtle Central Warm Vignette for Text Legibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/70 pointer-events-none select-none z-10" />
 
-      {/* Main Content Container */}
-      <div className="relative z-30 max-w-3xl mx-auto my-auto flex flex-col items-center">
+      {/* Main Content Container (Inside the Royal Arch) */}
+      <div className="relative z-30 max-w-2xl mx-auto my-auto flex flex-col items-center pt-8 md:pt-4">
         
+        {/* Wedding Invitation Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="text-center mb-3"
+        >
+          <span className="font-body text-xs sm:text-sm tracking-[0.35em] uppercase text-[#F7E7A9] font-semibold block drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+            WEDDING INVITATION
+          </span>
+        </motion.div>
+
         {/* Monogram Crest */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="w-24 h-24 md:w-32 md:h-32 mb-6 pointer-events-none select-none drop-shadow-sm"
+          className="w-20 h-20 md:w-28 md:h-28 mb-3 pointer-events-none select-none filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]"
         >
           <img
             src="/assets/monogram-sj.svg"
             alt="S & J Monogram"
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain filter invert sepia saturate-200 hue-rotate-[10deg] brightness-125"
           />
         </motion.div>
 
-        {/* Subtitle / Traditional Invocation */}
+        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3 }}
-          className="font-body text-xs md:text-sm tracking-[0.35em] uppercase text-sage-dark font-medium mb-4"
+          className="font-body text-xs md:text-sm tracking-[0.35em] uppercase text-[#F3E5AB] font-medium mb-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]"
         >
           Together with their families
         </motion.p>
@@ -89,19 +77,21 @@ export default function HeroSection({
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.5 }}
-          className="my-2"
+          className="my-1 text-center"
         >
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight text-[#2B352E] font-normal leading-tight">
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight text-white font-normal leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
             {bride}
           </h1>
+
           <div className="flex items-center justify-center my-2 gap-4">
-            <span className="h-px w-12 md:w-20 bg-gold/50" />
-            <span className="font-display text-4xl md:text-5xl text-gold italic px-2">
+            <span className="h-px w-12 md:w-20 bg-gold/70" />
+            <span className="font-display text-4xl md:text-5xl text-[#F5DE88] italic px-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
               &amp;
             </span>
-            <span className="h-px w-12 md:w-20 bg-gold/50" />
+            <span className="h-px w-12 md:w-20 bg-gold/70" />
           </div>
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight text-[#2B352E] font-normal leading-tight">
+
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight text-white font-normal leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
             {groom}
           </h1>
         </motion.div>
@@ -111,9 +101,9 @@ export default function HeroSection({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="font-serif italic text-lg md:text-2xl text-sage-dark/85 max-w-xl mx-auto my-6 px-4 font-light leading-relaxed"
+          className="font-serif italic text-base md:text-xl text-[#FBF6EE] max-w-xl mx-auto my-4 px-4 font-light leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
         >
-          Request the honour of your gracious presence to celebrate our wedding ceremony
+          Request the honour of your gracious presence and blessings to celebrate our wedding ceremony
         </motion.p>
 
         {/* Date & Location Pill Cards */}
@@ -121,15 +111,19 @@ export default function HeroSection({
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
-          className="flex flex-col sm:flex-row items-center gap-3 md:gap-6 mt-2"
+          className="flex flex-col sm:flex-row items-center gap-3 md:gap-5 mt-2"
         >
-          <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/85 backdrop-blur-md border border-gold/30 shadow-sm text-sage-dark">
-            <Calendar className="w-4 h-4 text-gold" />
+          <a
+            href="#dates-reveal"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-black/60 backdrop-blur-md border border-gold/70 shadow-2xl text-[#F7E7A9] hover:bg-black/80 hover:border-gold hover:text-white hover:scale-105 transition-all cursor-pointer group"
+            title="Click to reveal wedding schedule"
+          >
+            <Calendar className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
             <span className="font-body text-xs md:text-sm tracking-wider uppercase font-semibold">
               {date}
             </span>
-          </div>
-          <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/85 backdrop-blur-md border border-gold/30 shadow-sm text-sage-dark">
+          </a>
+          <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-black/60 backdrop-blur-md border border-gold/70 shadow-2xl text-[#F7E7A9]">
             <MapPin className="w-4 h-4 text-gold" />
             <span className="font-body text-xs md:text-sm tracking-wider uppercase font-semibold">
               {venue}
@@ -138,22 +132,13 @@ export default function HeroSection({
         </motion.div>
       </div>
 
-      {/* Classical Candlelight & Floral bottom decoration */}
-      <div className="relative z-20 flex justify-center items-end mt-8 pointer-events-none select-none">
-        <img
-          src="/assets/candles.png"
-          alt=""
-          className="w-48 md:w-64 h-auto opacity-75"
-        />
-      </div>
-
       {/* Scroll Down Indicator */}
       <motion.button
         onClick={scrollToNext}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.8 }}
-        className="relative z-30 flex flex-col items-center gap-1 mt-4 text-sage-dark/70 hover:text-sage-dark transition-colors cursor-pointer group"
+        className="relative z-30 flex flex-col items-center gap-1 mt-6 text-[#F7E7A9]/90 hover:text-white transition-colors cursor-pointer group drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]"
       >
         <span className="text-[10px] tracking-[0.3em] uppercase font-body font-semibold">
           Scroll to explore
