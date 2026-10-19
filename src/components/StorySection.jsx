@@ -330,7 +330,7 @@ export default function StorySection() {
                   transition={{ duration: 0.3 }}
                 >
                   <p className="font-serif italic text-lg sm:text-xl text-white font-medium leading-snug drop-shadow-sm">
-                    &ldquo;{currentSlide.caption}&rdquo;
+                    {currentSlide.caption}
                   </p>
                 </motion.div>
               </AnimatePresence>
